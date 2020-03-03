@@ -1,15 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 //import GlobalStyle from './GlobalStyle';
-import styled from 'styled-components';
 
-
+import Card from './components/Card/Card';
 
 
 function App() {
   return (
-
-  <div>Hello</div>  
+    <Card></Card>
   )
 }
 
