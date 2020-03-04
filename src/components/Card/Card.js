@@ -13,12 +13,43 @@ const StyledCard = styled.div`
   color: black;
 `;
 
+const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
+
+const StyledImageContainer = styled.div`
+  height: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  /*width: 100%; */
+
+
+
+`;
+
+const StyledPicture = styled.img.attrs(props => ({
+  src: props.src
+}))`
+  height: 100%;
+  
+`;
+
+const Title = styled.h1`
+  font-weight: 400;
+  color: #fff;
+  
+
+`;
+
 const Card = (props) => {
   return (
     <StyledCard>
-      Hello World!
+      <Title>Bulbasaur</Title>
+      <StyledImageContainer >
+        <StyledPicture src={picture}/>
+      </StyledImageContainer>
     </StyledCard>
-
   );
 }
 
