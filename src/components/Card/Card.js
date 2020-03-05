@@ -11,6 +11,10 @@ const StyledCard = styled.div`
   box-shadow: .5rem .5rem 1rem #888888;
   padding: 2rem;
   color: black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
@@ -26,6 +30,7 @@ const StyledImageContainer = styled.div`
 
 
 
+
 `;
 
 const StyledPicture = styled.img.attrs(props => ({
@@ -38,6 +43,7 @@ const StyledPicture = styled.img.attrs(props => ({
 const Title = styled.h1`
   font-weight: 400;
   color: #fff;
+  
   
 
 `;
