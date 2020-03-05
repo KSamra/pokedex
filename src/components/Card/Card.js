@@ -33,25 +33,26 @@ const StyledImageContainer = styled.div`
 
 `;
 
-const StyledPicture = styled.img.attrs(props => ({
-  src: props.src
+const StyledPicture = styled.img.attrs( ({src}) => ({
+  src
 }))`
   height: 100%;
   
 `;
 
-const Title = styled.h1`
+const Header = styled.h1`
   font-weight: 400;
   color: #fff;
-  
-  
+`;
 
+const PokedexNumber = styled.p`
+  
 `;
 
 const Card = (props) => {
   return (
     <StyledCard>
-      <Title>Bulbasaur</Title>
+      <Header>{props.name}</Header>
       <StyledImageContainer >
         <StyledPicture src={picture}/>
       </StyledImageContainer>
