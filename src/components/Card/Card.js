@@ -64,6 +64,13 @@ const Divider = styled.section`
   content: "";
   width: 75%;
   border-bottom: 1px solid whitesmoke;
+  margin-bottom: .5rem;
+`;
+
+//TODO: Make this a grid container and think about other stats to showcase
+const FrontStatsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 const Type = styled.div`
@@ -71,10 +78,22 @@ const Type = styled.div`
   height: 2rem;
   width: 5rem;
   display: inline-block;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  letter-spacing: .2rem;
+  border: 1px solid #635c07;
+  font-weight: 600;
+
 
 `;
 
 const textColor = `#c2c3c4`;
+const green = '#36b541';
+const fire = '#F08030';
 
 const Card = (props) => {
   return (
@@ -85,6 +104,9 @@ const Card = (props) => {
         <Picture src={picture}/>
       </ImageContainer>
       <Divider/>
+
+      <Type color={green}>Grass</Type>
+      <Type color={fire}>Fire</Type>
     </StyledCard>
   );
 }
