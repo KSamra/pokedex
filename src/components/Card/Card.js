@@ -66,6 +66,16 @@ const Divider = styled.section`
   border-bottom: 1px solid whitesmoke;
 `;
 
+const Type = styled.div`
+  background-color: ${ props => props.color};
+  height: 2rem;
+  width: 5rem;
+  display: inline-block;
+
+`;
+
+const textColor = `#c2c3c4`;
+
 const Card = (props) => {
   return (
     <StyledCard>
