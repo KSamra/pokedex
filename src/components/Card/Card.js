@@ -6,8 +6,8 @@ import {ReactComponent as pokeball } from '../../img/pokeball.svg';
 
 
 const StyledCard = styled.div`
-  height: 20rem;
-  width: 15rem;
+  height: 22rem;
+  width: 17rem;
   background-color: palevioletred;
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
@@ -21,16 +21,12 @@ const StyledCard = styled.div`
   
 `;
 
-const CardHeader = styled.header`
-  background-color: cyan;
-  margin-bottom: .5rem;
-`;
+
 
 const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
 
 const StyledImageContainer = styled.div`
   height: 50%;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +38,12 @@ const StyledPicture = styled.img.attrs( ({src}) => ({
   src
 }))`
   height: 100%;
-  
 `;
 
 const Header = styled.h1`
   font-weight: 400;
   color: #fff;
+  margin-bottom: .5rem;
 `;
 
 const Pokeball = styled.svg`
@@ -64,17 +60,21 @@ const PokedexNumber = styled.p`
   padding-right: 1rem;
 `;
 
+const Divider = styled.section`
+  content: "";
+  width: 75%;
+  border-bottom: 1px solid whitesmoke;
+`;
+
 const Card = (props) => {
   return (
     <StyledCard>
-      
       <Pokeball as={pokeball} />
-      <CardHeader>
-        <Header>{props.name}</Header>
-      </CardHeader>
+      <Header>{props.name}</Header>
       <StyledImageContainer >
         <StyledPicture src={picture}/>
       </StyledImageContainer>
+      <Divider/>
     </StyledCard>
   );
 }
