@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import {ReactComponent as pokeball } from '../../img/pokeball.svg';
+
 
 const StyledCard = styled.div`
   height: 20rem;
@@ -17,6 +19,11 @@ const StyledCard = styled.div`
   align-items: center;
 `;
 
+const CardHeader = styled.header`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
 const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
 
 const StyledImageContainer = styled.div`
@@ -27,10 +34,6 @@ const StyledImageContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   /*width: 100%; */
-
-
-
-
 `;
 
 const StyledPicture = styled.img.attrs( ({src}) => ({
@@ -45,6 +48,11 @@ const Header = styled.h1`
   color: #fff;
 `;
 
+const Pokeball = styled.svg`
+  height: 2rem;
+  width: 2rem;
+`;
+
 const PokedexNumber = styled.p`
   
 `;
@@ -52,7 +60,10 @@ const PokedexNumber = styled.p`
 const Card = (props) => {
   return (
     <StyledCard>
-      <Header>{props.name}</Header>
+      <CardHeader>
+        <Pokeball as={pokeball} />
+        <Header>{props.name}</Header>
+      </CardHeader>
       <StyledImageContainer >
         <StyledPicture src={picture}/>
       </StyledImageContainer>
