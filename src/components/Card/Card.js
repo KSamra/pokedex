@@ -11,17 +11,19 @@ const StyledCard = styled.div`
   background-color: palevioletred;
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
-  padding: 2rem;
+  padding: 1rem;
   color: black;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  
 `;
 
 const CardHeader = styled.header`
-  display: flex;
-  justify-content: space-evenly;
+  background-color: cyan;
+  margin-bottom: .5rem;
 `;
 
 const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
@@ -51,17 +53,23 @@ const Header = styled.h1`
 const Pokeball = styled.svg`
   height: 2rem;
   width: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 `;
 
 const PokedexNumber = styled.p`
-  
+  text-transform: uppercase;
+  font-weight: 400;
+  padding-right: 1rem;
 `;
 
 const Card = (props) => {
   return (
     <StyledCard>
+      
+      <Pokeball as={pokeball} />
       <CardHeader>
-        <Pokeball as={pokeball} />
         <Header>{props.name}</Header>
       </CardHeader>
       <StyledImageContainer >
