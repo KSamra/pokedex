@@ -25,7 +25,7 @@ const StyledCard = styled.div`
 
 const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
 
-const StyledImageContainer = styled.div`
+const ImageContainer = styled.div`
   height: 50%;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@ const StyledImageContainer = styled.div`
   /*width: 100%; */
 `;
 
-const StyledPicture = styled.img.attrs( ({src}) => ({
+const Picture = styled.img.attrs( ({src}) => ({
   src
 }))`
   height: 100%;
@@ -71,9 +71,9 @@ const Card = (props) => {
     <StyledCard>
       <Pokeball as={pokeball} />
       <Header>{props.name}</Header>
-      <StyledImageContainer >
-        <StyledPicture src={picture}/>
-      </StyledImageContainer>
+      <ImageContainer >
+        <Picture src={picture}/>
+      </ImageContainer>
       <Divider/>
     </StyledCard>
   );
