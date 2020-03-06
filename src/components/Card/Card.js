@@ -2,18 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {ReactComponent as pokeball } from '../../img/pokeball.svg';
+import { ReactComponent as pokeball } from '../../img/pokeball.svg';
 
 
 const StyledCard = styled.div`
   height: 22rem;
   width: 17rem;
-  background-color: palevioletred;
+  background-color: peachpuff;
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
   padding: 1rem;
   color: black;
-
   display: flex;
   flex-direction: column;
   align-items: center;
