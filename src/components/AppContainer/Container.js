@@ -13,13 +13,13 @@ const Grid = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 1fr 2fr 4fr .5fr;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: .5fr 2fr 2fr .5fr;
   grid-template-areas: 
-    "header"
-    "filter"
-    "content"
-    "footer";
+    "header header"
+    "filter content"
+    "filter content"
+    "footer footer";
 `;
 
 const Container = () => {
