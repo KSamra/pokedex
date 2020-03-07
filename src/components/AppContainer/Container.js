@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import React, { Fragment } from 'react';
 
+import Header from '../Header/Header';
+import Filter from '../Filter/Filter';
+import Content from '../Content/Content';
+import Footer from '../Footer/Footer';
+
 
 
 
@@ -15,25 +20,6 @@ const Grid = styled.div`
     "filter"
     "content"
     "footer";
-`;
-
-const Header = styled.header`
-  grid-area: header;
-  background-color: cyan;
-`;
-
-const Filter = styled.div`
-  grid-area: filter;
-`;
-
-const Content = styled.main`
-  grid-area: content;
-  background-color: blue;
-`;
-
-const Footer = styled.footer`
-  grid-area: footer;
-  background-color: palevioletred;
 `;
 
 const Container = () => {
