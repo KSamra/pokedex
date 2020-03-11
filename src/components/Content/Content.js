@@ -8,7 +8,10 @@ const StyledContent = styled.main`
   background-color: black;
   display: grid;
 
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
 
 `;
 
@@ -21,6 +24,7 @@ const Content = (props) => {
       <Card/>
       <Card/>
       <Card/> 
+      <Card/>
     </StyledContent>
   )
 };

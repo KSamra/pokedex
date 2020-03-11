@@ -14,10 +14,9 @@ const Grid = styled.div`
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: .5fr 2fr 2fr .5fr;
+  grid-template-rows: .5fr 6fr .5fr;
   grid-template-areas: 
     "filter header"
-    "filter content"
     "filter content"
     "footer footer";
 `;

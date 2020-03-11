@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import PokemonLogo from '../../img/pokemon-logo.png';
+// Temp
+// import PokemonLogo from '../../img/pokemon-logo.png';
 import PokeballLogo from '../../img/pokemon-symbol-logo.png';
 const StyledHeader = styled.header`
   grid-area: header;
