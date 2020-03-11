@@ -5,8 +5,7 @@ import PokemonLogo from '../../img/pokemon-logo.png';
 import PokeballLogo from '../../img/pokemon-symbol-logo.png';
 const StyledHeader = styled.header`
   grid-area: header;
-  background-color: cyan;
-  
+  border: 10px solid red; 
   display: flex;
   justify-content: center;
   align-items: center;

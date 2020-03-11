@@ -1,8 +1,18 @@
 import styled from 'styled-components';
+import React from 'react';
 
-const Content = styled.main`
+
+const StyledContent = styled.main`
   grid-area: content;
-  background-color: blue;
+  background-color: black;
 `;
+
+const Content = (props) => {
+  return (
+    <StyledContent>
+
+    </StyledContent>
+  )
+};
 
 export default Content;
