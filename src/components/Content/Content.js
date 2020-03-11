@@ -8,7 +8,7 @@ const StyledContent = styled.main`
   background-color: black;
   display: grid;
 
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
 
