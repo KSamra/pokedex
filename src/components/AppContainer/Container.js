@@ -16,7 +16,7 @@ const Grid = styled.div`
   grid-template-columns: 1fr 5fr;
   grid-template-rows: .5fr 2fr 2fr .5fr;
   grid-template-areas: 
-    "header header"
+    "filter header"
     "filter content"
     "filter content"
     "footer footer";
