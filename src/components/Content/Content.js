@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import React from 'react';
 
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+
 import Card from '../Card/Card';
 
 const StyledContent = styled.main`
@@ -13,6 +16,18 @@ const StyledContent = styled.main`
   grid-row-gap: 2rem;
 
 
+`;
+
+const QUERY = gql`
+query getPokemon{
+  pokemons{
+    name
+    pokedex_number
+    japanese_name
+    type1
+    type2
+  }
+}
 `;
 
 const Content = (props) => {
