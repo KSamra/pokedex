@@ -23,14 +23,17 @@ query getPokemon{
   pokemons{
     name
     pokedex_number
-    japanese_name
-    type1
-    type2
   }
 }
 `;
 
 const Content = (props) => {
+  const {data, loading, error} = useQuery(QUERY);
+
+  if(error){
+    console.log(error);
+  }
+  console.log(data);
   return (
     <StyledContent>
       <Card/>
