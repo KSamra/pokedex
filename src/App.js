@@ -14,7 +14,6 @@ function App() {
     <Container>
 
     </Container>
-    // <Card name="Bulbasaur"></Card>
   )
 }
 
