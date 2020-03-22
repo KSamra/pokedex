@@ -94,17 +94,17 @@ const textColor = `#c2c3c4`;
 const green = '#36b541';
 const fire = '#F08030';
 
-const Card = (props) => {
+const Card = ({name, id, type1, type2, photo}) => {
   return (
     <StyledCard>
       <Pokeball as={pokeball} />
-      <Header>{props.name}</Header>
+      <Header>{name}</Header>
       <ImageContainer >
-        <Picture src={picture}/>
+        <Picture src={photo}/>
       </ImageContainer>
       <Divider/>
 
-      <Type color={green}>Grass</Type>
+      <Type color={green}>Green</Type>
       <Type color={fire}>Fire</Type>
     </StyledCard>
   );

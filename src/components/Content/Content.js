@@ -8,7 +8,7 @@ import Card from '../Card/Card';
 
 const StyledContent = styled.main`
   grid-area: content;
-  background-color: black;
+  background-color: #282c35;
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
@@ -18,11 +18,26 @@ const StyledContent = styled.main`
 
 `;
 
+const LoadingBox = styled.span`
+  background-color: #282c35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LoadingMessage = styled.h2`
+  color: white;
+  letter-spacing: 1rem;
+`;
+
 const QUERY = gql`
 query getPokemon{
   pokemons{
     name
     pokedex_number
+    type1
+    type2
+    photo
   }
 }
 `;
@@ -30,21 +45,30 @@ query getPokemon{
 const Content = (props) => {
   const {data, loading, error} = useQuery(QUERY);
 
+
   if(error){
     console.log(error);
   }
-  console.log(data);
+  if(loading){
+    return (
+    <LoadingBox>
+      <LoadingMessage>
+        Loading....
+      </LoadingMessage>
+    </LoadingBox>)
+  }
+  if(data){
+    console.log(data.pokemons[0]);
+  }
+  
   return (
     <StyledContent>
       <Card/>
       <Card/>
       <Card/>
-      <Card/>
-      <Card/>
-      <Card/> 
-      <Card/>
     </StyledContent>
   )
 };
+
 
 export default Content;
