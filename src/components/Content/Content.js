@@ -11,8 +11,8 @@ const StyledContent = styled.main`
   background-color: #282c35;
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  grid-column-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-column-gap: 4rem;
   grid-row-gap: 2rem;
 
 
@@ -26,8 +26,10 @@ const LoadingBox = styled.span`
 `;
 
 const LoadingMessage = styled.h2`
-  color: white;
+  color: whitesmoke;
   letter-spacing: 1rem;
+  display: inline-block;
+  
 `;
 
 const QUERY = gql`
@@ -45,6 +47,7 @@ query getPokemon{
 const Content = (props) => {
   const {data, loading, error} = useQuery(QUERY);
 
+  let content = [];
 
   if(error){
     console.log(error);
@@ -59,13 +62,15 @@ const Content = (props) => {
   }
   if(data){
     console.log(data.pokemons[0]);
+    for (let index = 0; index < 20; index++) {
+      const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
+      content.push(<Card name={name} photo={photo}/>)
+    }
   }
   
   return (
     <StyledContent>
-      <Card/>
-      <Card/>
-      <Card/>
+      {content}
     </StyledContent>
   )
 };
