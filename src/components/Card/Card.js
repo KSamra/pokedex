@@ -27,9 +27,6 @@ const StyledCard = styled.div`
 `;
 
 
-
-const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
-
 const ImageContainer = styled.div`
   height: 50%;
   display: flex;

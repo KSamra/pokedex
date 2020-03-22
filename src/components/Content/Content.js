@@ -70,7 +70,6 @@ const Content = (props) => {
   }
 
   if(data){
-    console.log(data.pokemons[0]);
     for (let index = 0; index < 20; index++) {
       const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
       content.push(<Card key={pokedex_number} name={name} photo={photo} type1={type1} type2={type2}/>)
