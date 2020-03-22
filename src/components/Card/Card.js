@@ -94,6 +94,27 @@ const textColor = `#c2c3c4`;
 const green = '#36b541';
 const fire = '#F08030';
 
+const typeColors = {
+  'bug': '#A8B820',
+  'electric': null,
+  'fire': null,
+  'grass': null,
+  'normal': null,
+  'rock': null,
+  'dark': null,
+  'fairy': null,
+  'flying': null,
+  'ground': null,
+  'poison': null,
+  'steel': null,
+  'dragon': null,
+  'fighting': null,
+  'ghost': null,
+  'ice': null,
+  'psychic': null,
+  'water': null,
+}
+
 const Card = ({name, id, type1, type2, photo}) => {
   return (
     <StyledCard>
