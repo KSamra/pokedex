@@ -95,27 +95,39 @@ const green = '#36b541';
 const fire = '#F08030';
 
 const typeColors = {
-  'bug': '#A8B820',
-  'electric': '#F8D030',
-  'fire': '#F08030',
-  'grass': '#78C850',
-  'normal': '#A8A878',
-  'rock': '#B8A038',
-  'dark': '#705848',
-  'fairy': '#EE99AC',
-  'flying': '#A890F0',
-  'ground': '#E0C068',
-  'poison': '#A040A0',
-  'steel': '#B8B8D0',
-  'dragon': '#7038F8',
-  'fighting': '#C03028',
-  'ghost': '#705898',
-  'ice': '#98D8D8',
-  'psychic': '#F85888',
-  'water': '#6890F0',
+  'bug': {color: '#A8B820', name: 'bug'},
+  'electric': {color:'#F8D030', name:'electric'},
+  'fire': {color: '#F08030', name: 'fire'},
+  'grass': {color: '#78C850', name: 'grass'},
+  'normal': {color: '#A8A878', name: 'normal'},
+  'rock': {color: '#B8A038', name: 'rock'},
+  'dark': {color: '#705848', name: 'dark'},
+  'fairy': {color: '#EE99AC', name: 'fairy'},
+  'flying': {color: '#A890F0', name: 'flying'},
+  'ground': {color: '#E0C068', name: 'ground'},
+  'poison': {color: '#A040A0', name: 'poison'},
+  'steel': {color: '#B8B8D0', name: 'steel'},
+  'dragon': {color: '#7038F8', name: 'dragon'},
+  'fighting': {color: '#C03028', name: 'fighting'},
+  'ghost': {color: '#705898', name: 'ghost'},
+  'ice': {color: '#98D8D8', name: 'ice'},
+  'psychic': {color: '#F85888', name: 'psychic'},
+  'water': {color: '#6890F0', name: 'water'}
 }
 
-const Card = ({name, id, type1, type2, photo}) => {
+
+
+const Card = ({name, key, type1, type2, photo}) => {
+
+  let types = [];
+  if (type1) {
+    types.push(<Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>)
+  }
+  if (type2) {
+    types.push(<Type color={typeColors[type2].color}>{typeColors[type2].name}</Type>)
+  }
+
+
   return (
     <StyledCard>
       <Pokeball as={pokeball} />
@@ -125,8 +137,8 @@ const Card = ({name, id, type1, type2, photo}) => {
       </ImageContainer>
       <Divider/>
 
-      <Type color={green}>Green</Type>
-      <Type color={fire}>Fire</Type>
+      
+      {types}
     </StyledCard>
   );
 }
