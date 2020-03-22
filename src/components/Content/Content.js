@@ -32,6 +32,7 @@ const LoadingMessage = styled.h2`
   
 `;
 
+
 const QUERY = gql`
 query getPokemon{
   pokemons{
@@ -49,9 +50,6 @@ const Content = (props) => {
 
   let content = [];
 
-  if(error){
-    console.log(error);
-  }
   if(loading){
     return (
     <LoadingBox>
@@ -60,6 +58,16 @@ const Content = (props) => {
       </LoadingMessage>
     </LoadingBox>)
   }
+
+  if(error) {
+    return (
+      <LoadingBox>
+        <LoadingMessage>
+          Error
+        </LoadingMessage>
+      </LoadingBox>)
+  }
+
   if(data){
     console.log(data.pokemons[0]);
     for (let index = 0; index < 20; index++) {

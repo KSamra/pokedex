@@ -119,15 +119,9 @@ const typeColors = {
 
 const Card = ({name, key, type1, type2, photo}) => {
 
-  let types = [];
-  if (type1) {
-    types.push(<Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>)
-  }
-  if (type2) {
-    types.push(<Type color={typeColors[type2].color}>{typeColors[type2].name}</Type>)
-  }
-
-
+// Conditionally render pokemon type2 since not all pokemon have a secondary type
+  let t2 = type2 ? <Type color={typeColors[type2].color}>{typeColors[type2].name}</Type> : null;
+ 
   return (
     <StyledCard>
       <Pokeball as={pokeball} />
@@ -136,9 +130,8 @@ const Card = ({name, key, type1, type2, photo}) => {
         <Picture src={photo}/>
       </ImageContainer>
       <Divider/>
-
-      
-      {types}
+      <Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>
+      {t2}
     </StyledCard>
   );
 }
