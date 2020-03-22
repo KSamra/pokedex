@@ -17,6 +17,12 @@ const StyledCard = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  transition: transform .2s;
+  
+  &:hover {
+    transform: translateY(-1rem);
+
+  }
   
 `;
 
@@ -117,7 +123,7 @@ const typeColors = {
 
 
 
-const Card = ({name, key, type1, type2, photo}) => {
+const Card = ({name, type1, type2, photo}) => {
 
 // Conditionally render pokemon type2 since not all pokemon have a secondary type
   let t2 = type2 ? <Type color={typeColors[type2].color}>{typeColors[type2].name}</Type> : null;
