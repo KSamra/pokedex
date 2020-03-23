@@ -25,7 +25,7 @@ const Container = () => {
   return (
     <Grid>
       <Header></Header>
-      <Filter></Filter>
+      <Filter>TODO Add filter</Filter>
       <Content></Content>
       <Footer></Footer>
     </Grid>

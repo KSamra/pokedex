@@ -6,26 +6,34 @@ import React from 'react';
 import PokeballLogo from '../../img/pokemon-symbol-logo.png';
 const StyledHeader = styled.header`
   grid-area: header;
-  border: 10px solid red; 
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background-color: #282c35;
+
 
 `;
 
 const Logo = styled.img`
   height: 10rem;
   margin-right: 2rem;
+  background-image: linear-gradient(white, white);
+  border-radius: 50%;
+  overflow: hidden;
+  
 `;
 
+const Title = styled.h1`
+  letter-spacing: 1rem;
+  color: papayawhip;
+`;
 
 
 const Header = () => {
   return (
     <StyledHeader>
       <Logo src={PokeballLogo}/>
-      <h1>PokeDex</h1>
+      <Title>PokeDex</Title>
     </StyledHeader>
   );
 }

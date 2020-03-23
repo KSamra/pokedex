@@ -89,13 +89,7 @@ const Type = styled.div`
   letter-spacing: .2rem;
   border: 1px solid #635c07;
   font-weight: 600;
-
-
 `;
-
-const textColor = `#c2c3c4`;
-const green = '#36b541';
-const fire = '#F08030';
 
 const typeColors = {
   'bug': {color: '#A8B820', name: 'bug'},
