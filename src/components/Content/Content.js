@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React,  {useState, useEffect} from 'react';
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -49,10 +49,26 @@ query getPokemon{
 const Content = (props) => {
   const {data, loading, error} = useQuery(QUERY);
 
+  const [cardSummary, setCardSummary] = useState(null);
+  
+  useEffect(() => {
+    console.log(`cardSummary changed values`);
+    if (cardSummary){
+      document.title = `Pokedex | ${cardSummary}`;
+    }
+  }, [cardSummary])
+
+  const updateActiveCard = (name) => {
+    console.log(`clicked on card ${name}`);
+    setCardSummary(name);
+  }
+
+
+
   let content = [];
 
   if(loading){
-    return (
+    return(
     <LoadingBox>
       <LoadingMessage>
         Loading....
@@ -61,7 +77,7 @@ const Content = (props) => {
   }
 
   if(error) {
-    return (
+    return(
       <LoadingBox>
         <LoadingMessage>
           Error
@@ -72,7 +88,12 @@ const Content = (props) => {
   if(data){
     for (let index = 0; index < 20; index++) {
       const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
-      content.push(<Card key={pokedex_number} name={name} photo={photo} type1={type1} type2={type2}/>)
+      content.push(<Card key={pokedex_number} 
+                         name={name} 
+                         photo={photo} 
+                         type1={type1} 
+                         type2={type2}
+                         clickHandler={updateActiveCard}/>)
     }
   }
   

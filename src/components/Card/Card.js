@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import styled from 'styled-components';
 
@@ -17,12 +17,13 @@ const StyledCard = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
   transition: transform .2s;
-  
   &:hover {
     transform: translateY(-1rem);
 
   }
+
   
 `;
 
@@ -114,18 +115,20 @@ const typeColors = {
 
 
 
-const Card = ({name, type1, type2, photo}) => {
+const Card = ({name, type1, type2, photo, clickHandler}) => {
 
 // Conditionally render pokemon type2 since not all pokemon have a secondary type
   let t2 = type2 ? <Type color={typeColors[type2].color}>{typeColors[type2].name}</Type> : null;
+
  
   return (
-    <StyledCard>
+    <StyledCard onClick={() => clickHandler(name)} >
       <Pokeball as={pokeball} />
-      <Header>{name}</Header>
+      {/* <Header>{name}</Header> */}
       <ImageContainer >
         <Picture src={photo}/>
       </ImageContainer>
+      <Header>{name}</Header>
       <Divider/>
       <Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>
       {t2}
