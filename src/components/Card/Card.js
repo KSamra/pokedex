@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -92,7 +92,7 @@ const Type = styled.div`
   font-weight: 600;
 `;
 
-const typeColors = {
+export const typeColors = {
   'bug': {color: '#A8B820', name: 'bug'},
   'electric': {color:'#F8D030', name:'electric'},
   'fire': {color: '#F08030', name: 'fire'},
