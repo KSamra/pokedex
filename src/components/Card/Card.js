@@ -45,9 +45,10 @@ const Picture = styled.img.attrs( ({src}) => ({
   src
 }))`
   height: 100%;
+  transition: all .2s;
 
   ${StyledCard}:hover &{
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-3px);
   }
 `;
 
@@ -88,7 +89,8 @@ const FrontStatsContainer = styled.div`
 const Type = styled.div`
   background-color: ${ props => props.color};
   height: 2rem;
-  width: 5rem;
+  width: fit-content;
+  padding: 0 3px;
   display: inline-block;
   border-radius: 5px;
   text-transform: uppercase;
@@ -96,7 +98,7 @@ const Type = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  letter-spacing: .2rem;
+  letter-spacing: .1rem;
   border: 1px solid #635c07;
   font-weight: 600;
 `;
