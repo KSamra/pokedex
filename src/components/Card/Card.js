@@ -9,6 +9,8 @@ const StyledCard = styled.div`
   height: 22rem;
   width: 17rem;
   background-color: peachpuff;
+  
+background-image: ${props => `linear-gradient(to bottom, ${props.primary}, ${props.primary} 40%,black)`};
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
   padding: 1rem;
@@ -122,7 +124,8 @@ const Card = ({name, type1, type2, photo, clickHandler}) => {
 
  
   return (
-    <StyledCard onClick={() => clickHandler(name)} >
+    <StyledCard onClick={() => clickHandler(name)} 
+                primary={typeColors[type1].color} >
       <Pokeball as={pokeball} />
       {/* <Header>{name}</Header> */}
       <ImageContainer >
