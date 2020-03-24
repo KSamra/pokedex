@@ -10,7 +10,9 @@ const StyledCard = styled.div`
   width: 17rem;
   background-color: peachpuff;
   
-background-image: ${props => `linear-gradient(to bottom, ${props.primary}, ${props.primary} 40%,black)`};
+background-image: ${props => `linear-gradient(to bottom,
+                              ${props.primary}, 
+                              ${props.primary} 40%, #282c35)`};
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
   padding: 1rem;
@@ -20,7 +22,7 @@ background-image: ${props => `linear-gradient(to bottom, ${props.primary}, ${pro
   align-items: center;
   position: relative;
   cursor: pointer;
-  transition: transform .2s;
+  transition: all .2s;
   &:hover {
     transform: translateY(-1rem);
 
@@ -31,7 +33,7 @@ background-image: ${props => `linear-gradient(to bottom, ${props.primary}, ${pro
 
 
 const ImageContainer = styled.div`
-  height: 50%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,10 +45,15 @@ const Picture = styled.img.attrs( ({src}) => ({
   src
 }))`
   height: 100%;
+
+  ${StyledCard}:hover &{
+    transform: scale(1.2);
+  }
 `;
 
 const Header = styled.h1`
   font-weight: 400;
+  font-size: 1.8rem;
   color: #fff;
   margin-bottom: .5rem;
 `;
@@ -126,7 +133,7 @@ const Card = ({name, type1, type2, photo, clickHandler}) => {
   return (
     <StyledCard onClick={() => clickHandler(name)} 
                 primary={typeColors[type1].color} >
-      <Pokeball as={pokeball} />
+      {/* <Pokeball as={pokeball} /> */}
       {/* <Header>{name}</Header> */}
       <ImageContainer >
         <Picture src={photo}/>
