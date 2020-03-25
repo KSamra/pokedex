@@ -36,12 +36,14 @@ const LoadingMessage = styled.h2`
 
 const QUERY = gql`
 query getPokemon{
-  pokemons{
-    name
-    pokedex_number
-    type1
-    type2
-    photo
+  pokemons(pageSize: 10){
+    pokemons {
+      name
+      pokedex_number
+      type1
+      type2
+      photo
+    }
   }
 }
 `;
@@ -86,15 +88,29 @@ const Content = (props) => {
   }
 
   if(data){
-    for (let index = 0; index < 20; index++) {
-      const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
-      content.push(<Card key={pokedex_number} 
-                         name={name} 
-                         photo={photo} 
-                         type1={type1} 
-                         type2={type2}
-                         clickHandler={updateActiveCard}/>)
-    }
+
+    content = data.pokemons.pokemons
+      .map(({name,
+            pokedex_number,
+            type1,
+            type2,
+            photo
+            }) => <Card key={pokedex_number} 
+            name={name} 
+            photo={photo} 
+            type1={type1} 
+            type2={type2}
+            clickHandler={updateActiveCard}/>)
+
+    // for (let index = 0; index < 20; index++) {
+    //   const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
+    //   content.push(<Card key={pokedex_number} 
+    //                      name={name} 
+    //                      photo={photo} 
+    //                      type1={type1} 
+    //                      type2={type2}
+    //                      clickHandler={updateActiveCard}/>)
+    // }
   }
   
   return (
