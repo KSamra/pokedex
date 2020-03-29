@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import React,  {useState, useEffect} from 'react';
+import React,  {useState, useEffect, Fragment} from 'react';
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 import Card from '../Card/Card';
+import Nav from '../Buttons/Nav';
 
 const StyledContent = styled.main`
   grid-area: content;
@@ -35,9 +36,9 @@ const LoadingMessage = styled.h2`
 
 
 const QUERY = gql`
-query getPokemon(){
-  pokemons($offset: Int, $pageSize: Int){
-    cursor
+query getPokemon($offset: Int, $pageSize: Int){
+  pokemons(offset: $offset, pageSize: $pageSize){
+    offset
     hasMore
     pokemons {
       name
@@ -51,7 +52,11 @@ query getPokemon(){
 `;
 
 const Content = (props) => {
-  const {data, loading, error, fetchMore} = useQuery(QUERY);
+  const {data, loading, error} = useQuery(QUERY, {
+    variables: {
+      offset: 5
+    }
+  });
 
   const [cardSummary, setCardSummary] = useState(null);
   
@@ -81,10 +86,11 @@ const Content = (props) => {
   }
 
   if(error) {
+    console.log(error);
     return(
       <LoadingBox>
         <LoadingMessage>
-          Error
+          ERROR
         </LoadingMessage>
       </LoadingBox>)
   }
