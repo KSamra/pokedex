@@ -35,8 +35,10 @@ const LoadingMessage = styled.h2`
 
 
 const QUERY = gql`
-query getPokemon{
-  pokemons(pageSize: 10){
+query getPokemon(){
+  pokemons($offset: Int, $pageSize: Int){
+    cursor
+    hasMore
     pokemons {
       name
       pokedex_number
@@ -49,7 +51,7 @@ query getPokemon{
 `;
 
 const Content = (props) => {
-  const {data, loading, error} = useQuery(QUERY);
+  const {data, loading, error, fetchMore} = useQuery(QUERY);
 
   const [cardSummary, setCardSummary] = useState(null);
   
