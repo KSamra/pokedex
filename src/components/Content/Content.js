@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import React,  {useState, useEffect, Fragment} from 'react';
+import React,  {useState, useEffect } from 'react';
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 import Card from '../Card/Card';
-import Nav from '../Buttons/Nav';
 
 const StyledContent = styled.main`
   grid-area: content;
