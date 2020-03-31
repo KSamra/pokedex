@@ -15,8 +15,6 @@ const StyledContent = styled.main`
   grid-column-gap: 4rem;
   grid-row-gap: 2rem;
   padding: 1rem;
-
-
 `;
 
 const LoadingBox = styled.span`
