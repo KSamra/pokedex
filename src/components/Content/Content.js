@@ -110,15 +110,7 @@ const Content = (props) => {
             type2={type2}
             clickHandler={updateActiveCard}/>)
 
-    // for (let index = 0; index < 20; index++) {
-    //   const {name, pokedex_number, type1, type2, photo} = data.pokemons[index];
-    //   content.push(<Card key={pokedex_number} 
-    //                      name={name} 
-    //                      photo={photo} 
-    //                      type1={type1} 
-    //                      type2={type2}
-    //                      clickHandler={updateActiveCard}/>)
-    // }
+ 
   }
   
   return (

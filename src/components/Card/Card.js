@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ReactComponent as pokeball } from '../../img/pokeball.svg';
+// import { ReactComponent as pokeball } from '../../img/pokeball.svg';
 
 
 const StyledCard = styled.div`
