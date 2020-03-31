@@ -9,6 +9,10 @@ const StyledCard = styled.div`
   height: 22rem;
   width: 17rem;
   background-color: peachpuff;
+  
+background-image: ${props => `linear-gradient(to bottom,
+                              ${props.primary}, 
+                              ${props.primary} 40%, #282c35)`};
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
   padding: 1rem;
@@ -17,15 +21,19 @@ const StyledCard = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
+  transition: all .2s;
+  &:hover {
+    transform: translateY(-1rem);
+
+  }
+
   
 `;
 
 
-
-const picture = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png`
-
 const ImageContainer = styled.div`
-  height: 50%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,10 +45,16 @@ const Picture = styled.img.attrs( ({src}) => ({
   src
 }))`
   height: 100%;
+  transition: all .2s;
+
+  ${StyledCard}:hover &{
+    transform: scale(1.2) translateY(-3px);
+  }
 `;
 
 const Header = styled.h1`
   font-weight: 400;
+  font-size: 1.8rem;
   color: #fff;
   margin-bottom: .5rem;
 `;
@@ -75,7 +89,8 @@ const FrontStatsContainer = styled.div`
 const Type = styled.div`
   background-color: ${ props => props.color};
   height: 2rem;
-  width: 5rem;
+  width: fit-content;
+  padding: 0 3px;
   display: inline-block;
   border-radius: 5px;
   text-transform: uppercase;
@@ -83,18 +98,12 @@ const Type = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  letter-spacing: .2rem;
+  letter-spacing: .1rem;
   border: 1px solid #635c07;
   font-weight: 600;
-
-
 `;
 
-const textColor = `#c2c3c4`;
-const green = '#36b541';
-const fire = '#F08030';
-
-const typeColors = {
+export const typeColors = {
   'bug': {color: '#A8B820', name: 'bug'},
   'electric': {color:'#F8D030', name:'electric'},
   'fire': {color: '#F08030', name: 'fire'},
@@ -117,28 +126,24 @@ const typeColors = {
 
 
 
-const Card = ({name, key, type1, type2, photo}) => {
+const Card = ({name, type1, type2, photo, clickHandler}) => {
 
-  let types = [];
-  if (type1) {
-    types.push(<Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>)
-  }
-  if (type2) {
-    types.push(<Type color={typeColors[type2].color}>{typeColors[type2].name}</Type>)
-  }
+// Conditionally render pokemon type2 since not all pokemon have a secondary type
+  let t2 = type2 ? <Type color={typeColors[type2].color}>{typeColors[type2].name}</Type> : null;
 
-
+ 
   return (
-    <StyledCard>
-      <Pokeball as={pokeball} />
-      <Header>{name}</Header>
+    <StyledCard onClick={() => clickHandler(name)} 
+                primary={typeColors[type1].color} >
+      {/* <Pokeball as={pokeball} /> */}
+      {/* <Header>{name}</Header> */}
       <ImageContainer >
         <Picture src={photo}/>
       </ImageContainer>
+      <Header>{name}</Header>
       <Divider/>
-
-      
-      {types}
+      <Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>
+      {t2}
     </StyledCard>
   );
 }
