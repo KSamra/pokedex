@@ -7,12 +7,12 @@ import gql from "graphql-tag";
 import Card from '../Card/Card';
 
 const StyledContent = styled.main`
-  grid-area: content;
+  grid-area: main;
   background-color: #282c35;
   display: grid;
 
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  grid-column-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-column-gap: 3rem;
   grid-row-gap: 2rem;
   padding: 1rem;
 `;

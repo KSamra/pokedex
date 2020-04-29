@@ -15,7 +15,7 @@ background-image: ${props => `linear-gradient(to bottom,
                               ${props.primary} 40%, #282c35)`};
   border-radius: 3px;
   box-shadow: .5rem .5rem 1rem #888888;
-  padding: 1rem;
+  padding-right: 1rem;
   color: black;
   display: flex;
   flex-direction: column;

@@ -13,13 +13,22 @@ const Grid = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: .5fr 6fr .2fr .5fr;
+  /* grid-template-columns: 1fr;
+  grid-template-rows: .5fr 6fr .2fr .5fr; */
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 7fr .5fr;
   grid-template-areas: 
-    "filter header"
-    "filter content"
-    "filter nav"
-    "footer footer";
+    "header"
+    "main"
+    "footer";
+`;
+
+const Flex = styled.div`
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  
 `;
 /*
 TODO:
@@ -31,9 +40,9 @@ const Container = () => {
   return (
     <Grid>
       <Header></Header>
-      <Filter>TODO Add filter</Filter>
+      {/* <Filter>TODO Add filter</Filter> */}
       <Content></Content>
-      <Nav />
+      {/* <Nav /> */}
       <Footer></Footer>
     </Grid>
   )
