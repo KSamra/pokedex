@@ -21,7 +21,12 @@ const Grid = styled.div`
     "filter nav"
     "footer footer";
 `;
-
+/*
+TODO:
+- Change layout style to flexbox. No longer any need for a grid.
+- Add search input field.
+- Allow user to click on a card to have it expand and provide more information.
+*/ 
 const Container = () => {
   return (
     <Grid>
