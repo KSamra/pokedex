@@ -21,5 +21,4 @@ const StyledLargeCard = styled.div`
   
 
 `;
-
-const 
+ 

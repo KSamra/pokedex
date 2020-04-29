@@ -8,7 +8,8 @@ import Card from '../Card/Card';
 
 const StyledContent = styled.main`
   /* grid-area: main; */
-  background-color: #282c35;
+  /* background-color: #282c35; */
+  background-color: white;
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
