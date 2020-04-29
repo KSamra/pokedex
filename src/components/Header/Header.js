@@ -5,7 +5,7 @@ import React from 'react';
 // import PokemonLogo from '../../img/pokemon-logo.png';
 import PokeballLogo from '../../img/pokemon-symbol-logo.png';
 const StyledHeader = styled.header`
-  grid-area: header;
+  /* grid-area: header; */
   display: flex;
   justify-content: center;
   align-items: center;

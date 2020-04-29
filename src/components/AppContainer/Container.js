@@ -16,9 +16,10 @@ const Grid = styled.div`
   /* grid-template-columns: 1fr;
   grid-template-rows: .5fr 6fr .2fr .5fr; */
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 7fr .5fr;
+  grid-template-rows: 1fr .3fr 7fr .5fr;
   grid-template-areas: 
     "header"
+    "filter"
     "main"
     "footer";
 `;
@@ -27,7 +28,7 @@ const Flex = styled.div`
   display: flex;
 
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   
 `;
 /*
@@ -38,13 +39,13 @@ TODO:
 */ 
 const Container = () => {
   return (
-    <Grid>
+    <Flex>
       <Header></Header>
-      {/* <Filter>TODO Add filter</Filter> */}
+      <Filter>TODO Add filter</Filter>
       <Content></Content>
       {/* <Nav /> */}
-      <Footer></Footer>
-    </Grid>
+      <Footer>footer</Footer>
+    </Flex>
   )
 }
 

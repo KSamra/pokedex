@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 import Card from '../Card/Card';
 
 const StyledContent = styled.main`
-  grid-area: main;
+  /* grid-area: main; */
   background-color: #282c35;
   display: grid;
 
