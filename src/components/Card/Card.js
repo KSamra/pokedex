@@ -10,7 +10,7 @@ const StyledCard = styled.div`
   width: 17rem;
   background-color: peachpuff;
   
-background-image: ${props => `linear-gradient(to bottom,
+  background-image: ${props => `linear-gradient(to bottom,
                               ${props.primary}, 
                               ${props.primary} 40%, #282c35)`};
   border-radius: 3px;

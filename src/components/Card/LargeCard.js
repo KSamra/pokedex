@@ -10,3 +10,16 @@ import {typeColors} from './Card';
 
 
 
+const StyledLargeCard = styled.div`
+  display: flex;
+  max-width: 50rem;
+  max-height: 50rem;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  flex-direction: column;
+  align-items: center;
+  
+
+`;
+
+const 
