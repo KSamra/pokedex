@@ -58,6 +58,8 @@ const Content = (props) => {
 
   const [cardSummary, setCardSummary] = useState(null);
   
+  const [showLargeCard, setShowLargeCard] = useState(true);
+
   useEffect(() => {
     console.log(`cardSummary changed values`);
     if (cardSummary){
@@ -68,6 +70,7 @@ const Content = (props) => {
   const updateActiveCard = (name) => {
     console.log(`clicked on card ${name}`);
     setCardSummary(name);
+    setShowLargeCard(!showLargeCard);
   }
 
 
@@ -112,9 +115,10 @@ const Content = (props) => {
   }
   
   return (
-    <StyledContent>
-      {content}
-    </StyledContent>
+      <StyledContent>
+        {content}
+      </StyledContent>
+    
   )
 };
 

@@ -12,13 +12,20 @@ import {typeColors} from './Card';
 
 const StyledLargeCard = styled.div`
   display: flex;
-  max-width: 50rem;
-  max-height: 50rem;
-  background-color: whitesmoke;
+  width: 50rem;
+  height: 50rem;
+  background-color: pink;
   border-radius: 3px;
   flex-direction: column;
   align-items: center;
-  
-
+  justify-content: center;
+  z-index: 10;
 `;
- 
+
+const LargeCard = (props) => {
+  return (
+    <StyledLargeCard>Hello!</StyledLargeCard>
+  );
+}
+
+export default LargeCard;
