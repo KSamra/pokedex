@@ -20,11 +20,17 @@ const StyledLargeCard = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Add a transition so that the card slides in with an ease-in animation */
 `;
 
 const LargeCard = (props) => {
   return (
-    <StyledLargeCard>Hello!</StyledLargeCard>
+  <StyledLargeCard>{props.data}</StyledLargeCard>
   );
 }
 

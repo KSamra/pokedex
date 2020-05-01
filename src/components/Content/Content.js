@@ -12,7 +12,7 @@ const StyledContent = styled.main`
   background-color: white;
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
   padding: 1rem;
@@ -71,6 +71,7 @@ const Content = (props) => {
     console.log(`clicked on card ${name}`);
     setCardSummary(name);
     setShowLargeCard(!showLargeCard);
+    props.clickHandler(name);
   }
 
 

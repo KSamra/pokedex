@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, {useState} from 'react';
 
 import Header from '../Header/Header';
 import Filter from '../Filter/Filter';
 import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
-import Nav from '../Buttons/Nav';
-
+import LargeCard from '../Card/LargeCard';
+import { Fragment } from 'react';
 
 
 const Grid = styled.div`
@@ -38,14 +38,30 @@ TODO:
 - Allow user to click on a card to have it expand and provide more information.
 */ 
 const Container = () => {
+
+  const [showLargeCard, setShowLargeCard] = useState(false);
+  const [largeCardData, setLargeCardData] = useState({})
+
+  const updateLargeCardDetails = (data) => {
+    console.log('New data supplied!');
+    console.log(data);
+    setLargeCardData(data);
+    setShowLargeCard(!showLargeCard);
+    
+  }
+
+
   return (
-    <Flex>
-      <Header></Header>
-      <Filter>TODO Add filter</Filter>
-      <Content></Content>
-      {/* <Nav /> */}
-      <Footer>footer</Footer>
-    </Flex>
+    <Fragment>
+      {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null}
+      <Flex>
+        <Header></Header>
+        <Filter>TODO Add filter</Filter>
+        <Content clickHandler={updateLargeCardDetails}></Content>
+        {/* <Nav /> */}
+        <Footer>footer</Footer>
+      </Flex> 
+    </Fragment>
   )
 }
 
