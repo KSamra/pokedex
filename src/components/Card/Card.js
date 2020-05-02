@@ -59,19 +59,19 @@ const Header = styled.h1`
   margin-bottom: .5rem;
 `;
 
-const Pokeball = styled.svg`
-  height: 2rem;
-  width: 2rem;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-`;
+// const Pokeball = styled.svg`
+//   height: 2rem;
+//   width: 2rem;
+//   position: absolute;
+//   top: 1rem;
+//   left: 1rem;
+// `;
 
-const PokedexNumber = styled.p`
-  text-transform: uppercase;
-  font-weight: 400;
-  padding-right: 1rem;
-`;
+// const PokedexNumber = styled.p`
+//   text-transform: uppercase;
+//   font-weight: 400;
+//   padding-right: 1rem;
+// `;
 
 const Divider = styled.section`
   content: "";
@@ -80,11 +80,11 @@ const Divider = styled.section`
   margin-bottom: .5rem;
 `;
 
-//TODO: Make this a grid container and think about other stats to showcase
-const FrontStatsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
+// //TODO: Make this a grid container and think about other stats to showcase
+// const FrontStatsContainer = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+// `;
 
 const Type = styled.div`
   background-color: ${ props => props.color};
@@ -135,8 +135,6 @@ const Card = ({name, type1, type2, photo, clickHandler}) => {
   return (
     <StyledCard onClick={() => clickHandler(name)} 
                 primary={typeColors[type1].color} >
-      {/* <Pokeball as={pokeball} /> */}
-      {/* <Header>{name}</Header> */}
       <ImageContainer >
         <Picture src={photo}/>
       </ImageContainer>
