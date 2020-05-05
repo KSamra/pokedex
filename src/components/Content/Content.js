@@ -52,7 +52,7 @@ query getPokemon($offset: Int, $pageSize: Int){
 const Content = (props) => {
   const {data, loading, error} = useQuery(QUERY, {
     variables: {
-      offset: 5
+      offset: 0
     }
   });
 

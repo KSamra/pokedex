@@ -26,7 +26,7 @@ import { Fragment } from 'react';
 
 const Flex = styled.div`
   display: flex;
-
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   
@@ -40,7 +40,7 @@ TODO:
 const Container = () => {
 
   const [showLargeCard, setShowLargeCard] = useState(false);
-  const [largeCardData, setLargeCardData] = useState({})
+  const [largeCardData, setLargeCardData] = useState("empty")
 
   const updateLargeCardDetails = (data) => {
     console.log('New data supplied!');
@@ -53,10 +53,12 @@ const Container = () => {
 
   return (
     <Fragment>
-      {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null}
+      }
       <Flex>
         <Header></Header>
         <Filter>TODO Add filter</Filter>
+        {/* {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null} */}
+        <LargeCard animation={showLargeCard} data={largeCardData}></LargeCard>
         <Content clickHandler={updateLargeCardDetails}></Content>
         {/* <Nav /> */}
         <Footer>footer</Footer>
