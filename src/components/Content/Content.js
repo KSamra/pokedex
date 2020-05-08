@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import React,  {useState, useEffect } from 'react';
+import React,  {useState, useEffect, Fragment } from 'react';
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 import Card from '../Card/Card';
+import Nav from '../Buttons/Nav';
 
 const StyledContent = styled.main`
   /* grid-area: main; */
@@ -50,15 +51,18 @@ query getPokemon($offset: Int, $pageSize: Int){
 `;
 
 const Content = (props) => {
-  const {data, loading, error} = useQuery(QUERY, {
-    variables: {
-      offset: 0
-    }
-  });
-
   const [cardSummary, setCardSummary] = useState(null);
   
   const [showLargeCard, setShowLargeCard] = useState(true);
+  const [offset, setOffset] = useState(0);
+
+  const {data, loading, error} = useQuery(QUERY, {
+    variables: {
+      offset
+    }
+  });
+
+  
 
   useEffect(() => {
     console.log(`cardSummary changed values`);
@@ -74,7 +78,10 @@ const Content = (props) => {
     props.clickHandler(name);
   }
 
-
+  const loadNext = () => {
+    setOffset(offset + 20);
+    console.log('Requesting new data with offset ', offset);
+  }
 
   let content = [];
 
@@ -116,9 +123,14 @@ const Content = (props) => {
   }
   
   return (
+    <Fragment>
       <StyledContent>
         {content}
       </StyledContent>
+      <Nav  loadNext={loadNext}/>
+    </Fragment>
+
+      
     
   )
 };

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 
 import Header from '../Header/Header';
 import Filter from '../Filter/Filter';
 import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
 import LargeCard from '../Card/LargeCard';
-import { Fragment } from 'react';
+
 import ModalSetup from '../Modal/Modal';
 
 // const Grid = styled.div`
@@ -37,10 +37,11 @@ TODO:
 - Add search input field.
 - Allow user to click on a card to have it expand and provide more information.
 */ 
-const Container = () => {
+function Container (props){
 
   const [showLargeCard, setShowLargeCard] = useState(false);
   const [largeCardData, setLargeCardData] = useState("empty")
+
 
   const updateLargeCardDetails = (data) => {
     console.log('New data supplied!');
@@ -58,7 +59,7 @@ const Container = () => {
 
   return (
     <Fragment>
-      }
+      
       <Flex>
         <Header></Header>
         <Filter>TODO Add filter</Filter>
@@ -69,12 +70,12 @@ const Container = () => {
           dismiss={dismissLargeCard}
           children={largeCardData}
           ></ModalSetup>
-        <Content clickHandler={updateLargeCardDetails}></Content>
-        {/* <Nav /> */}
+        <Content clickHandler={updateLargeCardDetails} ></Content>
         <Footer>footer</Footer>
       </Flex> 
     </Fragment>
-  )
-}
+  );
 
-export default Container;
+ }
+
+ export default Container;

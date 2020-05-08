@@ -6,23 +6,24 @@ const StyledNav = styled.nav`
   grid-area: nav;
   display: flex;
   height: fit-content;
-  background-color: pink;
   align-self: center;
-  justify-self: center;
+  justify-self: space-between;
 
 `;
 
 const Arrow = styled.a`
   text-decoration: none;
   cursor: pointer;
+  padding: 0 1rem;
+  font-size: 2rem;
 `;
 
 
-const Nav = ({direction}) => {
+const Nav = ({hasMore, loadNext}) => {
   return(
     <StyledNav>
       <Arrow href={'#'}>&larr;</Arrow>
-      <Arrow href={'#'}>&rarr;</Arrow>
+      <Arrow  onClick={()=> loadNext()}>&rarr;</Arrow>
     </StyledNav>
   )
 };

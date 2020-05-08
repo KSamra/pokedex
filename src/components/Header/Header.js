@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   background-color: #282c35;
+  padding: 0.5rem 0;
 
 
 `;
