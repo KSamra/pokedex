@@ -38,18 +38,23 @@ const StyledLargeCard = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 20;
-  transform: translate(-100%, 0);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  opacity: ${props => props.animation ? 100 : 0};
+  transition: opacity 1s;
   /* animation: ${slide_in} 0.5s forwards; */
-  animation-name: ${props => props.animation ? slide_in : slide_out};
+  /* animation-name: ${props => props.animation ? slide_in : slide_out};
   animation-duration: 0.5s;
-  animation-direction: forwards;
+  animation-direction: forwards; */
 
 
   /* Add a transition so that the card slides in with an ease-in animation */
 `;
 
 const LargeCard = (props) => {
+  console.log('Animation setting is set to ', props.animation);
   return (
   <StyledLargeCard animation={props.animation}>{props.data}</StyledLargeCard>
   );

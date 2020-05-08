@@ -7,7 +7,7 @@ import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
 import LargeCard from '../Card/LargeCard';
 import { Fragment } from 'react';
-
+import ModalSetup from '../Modal/index';
 
 // const Grid = styled.div`
 //   height: 100vh;
@@ -50,6 +50,11 @@ const Container = () => {
     
   }
 
+  const dismissLargeCard = () => {
+    
+    setShowLargeCard(false);
+  }
+
 
   return (
     <Fragment>
@@ -58,7 +63,12 @@ const Container = () => {
         <Header></Header>
         <Filter>TODO Add filter</Filter>
         {/* {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null} */}
-        <LargeCard animation={showLargeCard} data={largeCardData}></LargeCard>
+        {/* <LargeCard animation={showLargeCard} data={largeCardData}></LargeCard> */}
+        <ModalSetup 
+          visible={showLargeCard}
+          dismiss={dismissLargeCard}
+          children={largeCardData}
+          ></ModalSetup>
         <Content clickHandler={updateLargeCardDetails}></Content>
         {/* <Nav /> */}
         <Footer>footer</Footer>
