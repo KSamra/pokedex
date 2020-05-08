@@ -7,7 +7,7 @@ import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
 import LargeCard from '../Card/LargeCard';
 import { Fragment } from 'react';
-import ModalSetup from '../Modal/index';
+import ModalSetup from '../Modal/Modal';
 
 // const Grid = styled.div`
 //   height: 100vh;

@@ -2,32 +2,25 @@ import styled, {keyframes} from 'styled-components';
 
 
 const slide_in = keyframes`
-
+  
+  0% {
+    transform: translateY(-50rem);
+  }
   100% {
     
-    transform: translate(95%, 30%);
+    transform: translateY(5rem);
   }
 `;
-
-const slide_out = keyframes`
-  0% {
-    transform: translate(95%, 30%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-`;
-
 
 export const ModalWrapper = styled.div`
   position: fixed;
-  top: 0;
+  top:0;
   left: 0;
   bottom: 0;
   z-index: 1050;
   display: flex;
   align-items: baseline;
+  /* animation: ${slide_in} 1s forwards; */
 `;
 
 export const ModalBoxSetup = styled.div`
@@ -45,6 +38,8 @@ export const ModalBoxSetup = styled.div`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
   border: 0.5px solid #E8E8E8;
   background-color: palevioletred;
+  animation: ${slide_in} 500ms forwards;
+  display: flex;
 `;
 
 export const ModalBg = styled.div`
