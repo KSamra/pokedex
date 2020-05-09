@@ -118,8 +118,6 @@ const Content = (props) => {
             type1={type1} 
             type2={type2}
             clickHandler={updateActiveCard}/>)
-
- 
   }
   
   return (
