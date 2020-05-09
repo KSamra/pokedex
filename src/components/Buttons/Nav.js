@@ -16,14 +16,18 @@ const Arrow = styled.a`
   cursor: pointer;
   padding: 0 1rem;
   font-size: 2rem;
+
 `;
 
 
-const Nav = ({hasMore, loadNext}) => {
+const Nav = ({hasMore, hasPrev, loadNext, loadPrev}) => {
+  console.log('Has more = ', hasMore);
+  console.log('Has less = ', hasPrev);
+
   return(
     <StyledNav>
-      <Arrow href={'#'}>&larr;</Arrow>
-      <Arrow  onClick={()=> loadNext()}>&rarr;</Arrow>
+      <Arrow onClick={hasPrev > 0 ? () => loadPrev() : false}>&larr;</Arrow>
+      <Arrow  onClick={hasMore ? ()=> loadNext() : false}>&rarr;</Arrow>
     </StyledNav>
   )
 };

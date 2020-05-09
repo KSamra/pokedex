@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 
 import Card from '../Card/Card';
 import Nav from '../Buttons/Nav';
+import { NetworkStatus } from 'apollo-client';
 
 const StyledContent = styled.main`
   /* grid-area: main; */
@@ -81,6 +82,15 @@ const Content = (props) => {
   const loadNext = () => {
     setOffset(offset + 20);
     console.log('Requesting new data with offset ', offset);
+  };
+
+  const loadPrev = () => {
+    let newOffset = offset;
+    newOffset -= 20;
+    if (newOffset < 0){
+      newOffset = 0;
+    }
+    setOffset(newOffset);
   }
 
   let content = [];
@@ -117,15 +127,16 @@ const Content = (props) => {
             photo={photo} 
             type1={type1} 
             type2={type2}
+            number={pokedex_number}
             clickHandler={updateActiveCard}/>)
   }
-  
+
   return (
     <Fragment>
       <StyledContent>
         {content}
       </StyledContent>
-      <Nav  loadNext={loadNext}/>
+      <Nav  hasMore={data.pokemons.hasMore} hasPrev={data.pokemons.offset} loadNext={loadNext} loadPrev={loadPrev}/>
     </Fragment>
 
       

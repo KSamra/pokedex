@@ -126,7 +126,7 @@ export const typeColors = {
 
 
 
-const Card = ({name, type1, type2, photo, clickHandler}) => {
+const Card = ({name, type1, type2, photo, clickHandler, number}) => {
 
 // Conditionally render pokemon type2 since not all pokemon have a secondary type
   let t2 = type2 ? <Type color={typeColors[type2].color}>{typeColors[type2].name}</Type> : null;
@@ -138,7 +138,7 @@ const Card = ({name, type1, type2, photo, clickHandler}) => {
       <ImageContainer >
         <Picture src={photo}/>
       </ImageContainer>
-      <Header>{name}</Header>
+      <Header>{name, number}</Header>
       <Divider/>
       <Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>
       {t2}
