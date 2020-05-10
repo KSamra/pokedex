@@ -67,10 +67,10 @@ function Container (props){
         <div>
           <Form>
             <Input 
-              type="text" 
+                type="text" 
                name="search" 
                placeholder="Search"
-               value={search}
+              //  value={search}
                onChange={handleSearch} />
           </Form>
         </div>

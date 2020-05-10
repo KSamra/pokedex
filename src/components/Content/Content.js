@@ -52,8 +52,8 @@ query getPokemons($offset: Int, $pageSize: Int){
 `;
 
 const Q_Pokemon = gql`
-  query getPokemon($id: Int){
-    pokemon(id: $id){
+  query getPokemon($id: Int, $name: String){
+    pokemon(id: $id, name: $name){
       name
       pokedex_number
       type1
@@ -72,20 +72,23 @@ const Content = (props) => {
   let QUERY;
   let options;
 
-  if (props.search.length() > 0){
+  if (props.search){
     QUERY = Q_Pokemon;
     options = {
       variables: {
-        //add query variables
+        name: props.search
+      }
+    }
+  } else {
+    QUERY = Q_Pokemons;
+    options = {
+      variables: {
+        offset
       }
     }
   }
 
-  const {data, loading, error} = useQuery(QUERY, {
-    variables: {
-      offset
-    }
-  });
+  const {data, loading, error} = useQuery(QUERY, options);
 
   
 
@@ -140,6 +143,7 @@ const Content = (props) => {
 
   if(data){
 
+    //This does needs to be refactored for the single pokemon lookup
     content = data.pokemons.pokemons
       .map(({name,
             pokedex_number,
