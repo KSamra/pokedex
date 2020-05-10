@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-const Filter = styled.div`
-  /* grid-area: filter; */
-  width: 60rem;
-  background-color: purple;
-  align-self: center;
+
+export const Form = styled.form`
+
+  display: flex;
+  width: 50vw;
+  background-color: lightseagreen;
+  flex-direction: column;
+  align-items: center;
+
 `;
 
-export default Filter;
+export const Input = styled.input`
+  border: 1px solid #ccc;
+  background-color: lightgrey;
+
+`;

@@ -6,7 +6,7 @@ import gql from "graphql-tag";
 
 import Card from '../Card/Card';
 import Nav from '../Buttons/Nav';
-import { NetworkStatus } from 'apollo-client';
+
 
 const StyledContent = styled.main`
   /* grid-area: main; */
@@ -35,8 +35,8 @@ const LoadingMessage = styled.h2`
 `;
 
 
-const QUERY = gql`
-query getPokemon($offset: Int, $pageSize: Int){
+const Q_Pokemons = gql`
+query getPokemons($offset: Int, $pageSize: Int){
   pokemons(offset: $offset, pageSize: $pageSize){
     offset
     hasMore
@@ -51,11 +51,35 @@ query getPokemon($offset: Int, $pageSize: Int){
 }
 `;
 
+const Q_Pokemon = gql`
+  query getPokemon($id: Int){
+    pokemon(id: $id){
+      name
+      pokedex_number
+      type1
+      type2
+      photo
+    }
+  }
+`;
+
 const Content = (props) => {
   const [cardSummary, setCardSummary] = useState(null);
   
   const [showLargeCard, setShowLargeCard] = useState(true);
   const [offset, setOffset] = useState(0);
+
+  let QUERY;
+  let options;
+
+  if (props.search.length() > 0){
+    QUERY = Q_Pokemon;
+    options = {
+      variables: {
+        //add query variables
+      }
+    }
+  }
 
   const {data, loading, error} = useQuery(QUERY, {
     variables: {

@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import React, {useState, Fragment} from 'react';
 
 import Header from '../Header/Header';
-import Filter from '../Filter/Filter';
+import {Form, Input} from '../Filter/Filter';
 import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
 import LargeCard from '../Card/LargeCard';
-
 import ModalSetup from '../Modal/Modal';
 
 // const Grid = styled.div`
@@ -41,7 +40,7 @@ function Container (props){
 
   const [showLargeCard, setShowLargeCard] = useState(false);
   const [largeCardData, setLargeCardData] = useState("empty")
-
+  const [search, setSearch] = useState('');
 
   const updateLargeCardDetails = (data) => {
     console.log('New data supplied!');
@@ -56,13 +55,25 @@ function Container (props){
     setShowLargeCard(false);
   }
 
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  }
 
   return (
     <Fragment>
       
       <Flex>
         <Header></Header>
-        <Filter>TODO Add filter</Filter>
+        <div>
+          <Form>
+            <Input 
+              type="text" 
+               name="search" 
+               placeholder="Search"
+               value={search}
+               onChange={handleSearch} />
+          </Form>
+        </div>
         {/* {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null} */}
         {/* <LargeCard animation={showLargeCard} data={largeCardData}></LargeCard> */}
         <ModalSetup 
@@ -70,7 +81,7 @@ function Container (props){
           dismiss={dismissLargeCard}
           children={largeCardData}
           ></ModalSetup>
-        <Content clickHandler={updateLargeCardDetails} ></Content>
+        <Content search={search} clickHandler={updateLargeCardDetails} ></Content>
         <Footer>footer</Footer>
       </Flex> 
     </Fragment>
