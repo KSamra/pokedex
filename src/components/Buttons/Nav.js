@@ -8,6 +8,7 @@ const StyledNav = styled.nav`
   height: fit-content;
   align-self: center;
   justify-self: space-between;
+  margin-bottom: 2rem;
 
 `;
 

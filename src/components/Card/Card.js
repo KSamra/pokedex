@@ -138,7 +138,7 @@ const Card = ({name, type1, type2, photo, clickHandler, number}) => {
       <ImageContainer >
         <Picture src={photo}/>
       </ImageContainer>
-      <Header>{name, number}</Header>
+      <Header>{name}</Header>
       <Divider/>
       <Type color={typeColors[type1].color}>{typeColors[type1].name}</Type>
       {t2}

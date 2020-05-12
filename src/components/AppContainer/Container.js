@@ -40,6 +40,7 @@ function Container (props){
 
   const [showLargeCard, setShowLargeCard] = useState(false);
   const [largeCardData, setLargeCardData] = useState("empty")
+  const [searchText, setSearchText] = useState('');
   const [search, setSearch] = useState('');
 
   const updateLargeCardDetails = (data) => {
@@ -55,8 +56,14 @@ function Container (props){
     setShowLargeCard(false);
   }
 
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
+  const onType = (event) => {
+    setSearchText(event.target.value);
+  }
+
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    setSearch(searchText);
+
   }
 
   return (
@@ -65,13 +72,13 @@ function Container (props){
       <Flex>
         <Header></Header>
         <div>
-          <Form>
+          <Form onSubmit={onSubmitForm}>
             <Input 
-                type="text" 
+               type="text" 
                name="search" 
                placeholder="Search"
               //  value={search}
-               onChange={handleSearch} />
+               onChange={onType} />
           </Form>
         </div>
         {/* {showLargeCard ? <LargeCard data={largeCardData} ></LargeCard> : null} */}

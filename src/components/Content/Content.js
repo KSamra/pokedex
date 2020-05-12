@@ -36,11 +36,11 @@ const LoadingMessage = styled.h2`
 
 
 const Q_Pokemons = gql`
-query getPokemons($offset: Int, $pageSize: Int){
-  pokemons(offset: $offset, pageSize: $pageSize){
+query getPokemons($offset: Int, $pageSize: Int, $name: String){
+  pokemon(offset: $offset, pageSize: $pageSize, name: $name){
     offset
     hasMore
-    pokemons {
+    pokemon {
       name
       pokedex_number
       type1
@@ -65,32 +65,17 @@ const Q_Pokemon = gql`
 
 const Content = (props) => {
   const [cardSummary, setCardSummary] = useState(null);
-  
   const [showLargeCard, setShowLargeCard] = useState(true);
   const [offset, setOffset] = useState(0);
 
-  let QUERY;
-  let options;
+  const [searchText, setSearchText] = useState('');
 
-  if (props.search){
-    QUERY = Q_Pokemon;
-    options = {
-      variables: {
-        name: props.search
-      }
-    }
-  } else {
-    QUERY = Q_Pokemons;
-    options = {
-      variables: {
-        offset
-      }
+  let options = {
+    variables: {
+      offset, 
+      name: searchText
     }
   }
-
-  const {data, loading, error} = useQuery(QUERY, options);
-
-  
 
   useEffect(() => {
     console.log(`cardSummary changed values`);
@@ -98,6 +83,13 @@ const Content = (props) => {
       document.title = `Pokedex | ${cardSummary}`;
     }
   }, [cardSummary])
+
+  useEffect(() => {
+    console.log(`new search for ${props.search} needs to be performed`);
+    setSearchText(props.search);
+  },[props.search]);
+
+  const {data, loading, error} = useQuery(Q_Pokemons, options);
 
   const updateActiveCard = (name) => {
     console.log(`clicked on card ${name}`);
@@ -141,30 +133,32 @@ const Content = (props) => {
       </LoadingBox>)
   }
 
-  if(data){
+  //This does needs to be refactored for the single pokemon lookup
 
-    //This does needs to be refactored for the single pokemon lookup
-    content = data.pokemons.pokemons
-      .map(({name,
-            pokedex_number,
-            type1,
-            type2,
-            photo
-            }) => <Card key={pokedex_number} 
-            name={name} 
-            photo={photo} 
-            type1={type1} 
-            type2={type2}
-            number={pokedex_number}
-            clickHandler={updateActiveCard}/>)
+  console.log(data);
+  if (data.pokemon.pokemon[0] !== null){
+    content = data.pokemon.pokemon
+    .map(({name,
+      pokedex_number,
+      type1,
+      type2,
+      photo
+      }) => <Card key={pokedex_number} 
+      name={name} 
+      photo={photo} 
+      type1={type1} 
+      type2={type2}
+      number={pokedex_number}
+      clickHandler={updateActiveCard}/>)
   }
+  
 
   return (
     <Fragment>
       <StyledContent>
         {content}
       </StyledContent>
-      <Nav  hasMore={data.pokemons.hasMore} hasPrev={data.pokemons.offset} loadNext={loadNext} loadPrev={loadPrev}/>
+      <Nav  hasMore={data.pokemon.hasMore} hasPrev={data.pokemon.offset} loadNext={loadNext} loadPrev={loadPrev}/>
     </Fragment>
 
       
