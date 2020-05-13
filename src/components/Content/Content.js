@@ -7,13 +7,16 @@ import gql from "graphql-tag";
 import Card from '../Card/Card';
 import Nav from '../Buttons/Nav';
 
+const ContentWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+`;
 
-const StyledContent = styled.main`
+const StyledContent = styled.div`
   /* grid-area: main; */
   /* background-color: #282c35; */
   background-color: white;
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
@@ -150,16 +153,32 @@ const Content = (props) => {
       type2={type2}
       number={pokedex_number}
       clickHandler={updateActiveCard}/>)
+
+      return (
+        <ContentWrapper>
+          <StyledContent>
+            {content}
+          </StyledContent>
+          <Nav  hasMore={data.pokemon.hasMore} hasPrev={data.pokemon.offset} loadNext={loadNext} loadPrev={loadPrev}/>
+        </ContentWrapper>
+    
+          
+        
+      ) 
   }
   
-
+  //There is no content to show. Probably due to unavailable filter results
   return (
-    <Fragment>
+    <ContentWrapper>
       <StyledContent>
-        {content}
+       <LoadingBox>
+         <LoadingMessage>
+           No Results
+          </LoadingMessage>
+        </LoadingBox>
       </StyledContent>
       <Nav  hasMore={data.pokemon.hasMore} hasPrev={data.pokemon.offset} loadNext={loadNext} loadPrev={loadPrev}/>
-    </Fragment>
+    </ContentWrapper>
 
       
     

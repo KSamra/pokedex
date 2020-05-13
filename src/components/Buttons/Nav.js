@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const StyledNav = styled.nav`
-  grid-area: nav;
+  /* grid-area: nav; */
   display: flex;
   height: fit-content;
   align-self: center;

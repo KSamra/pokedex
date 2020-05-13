@@ -25,10 +25,8 @@ import ModalSetup from '../Modal/Modal';
 
 const Flex = styled.div`
   display: flex;
-  position: relative;
+  align-items: stretch;
   flex-direction: column;
-  justify-content: space-between;
-  
 `;
 /*
 TODO:
@@ -67,11 +65,11 @@ function Container (props){
   }
 
   return (
-    <Fragment>
+
       
       <Flex>
         <Header></Header>
-        <div>
+        <div style={{alignSelf: 'center'}}>
           <Form onSubmit={onSubmitForm}>
             <Input 
                type="text" 
@@ -89,9 +87,9 @@ function Container (props){
           children={largeCardData}
           ></ModalSetup>
         <Content search={search} clickHandler={updateLargeCardDetails} ></Content>
-        <Footer>footer</Footer>
+        <Footer/>
       </Flex> 
-    </Fragment>
+
   );
 
  }
