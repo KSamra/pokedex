@@ -10,6 +10,10 @@ import Nav from '../Buttons/Nav';
 const ContentWrapper = styled.main`
   display: flex;
   flex-direction: column;
+  
+
+  /* Probably want to adjust this setting */
+  min-height: 70rem;
 `;
 
 const StyledContent = styled.div`
