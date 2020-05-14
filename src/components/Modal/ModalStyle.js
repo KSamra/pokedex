@@ -19,7 +19,7 @@ export const ModalWrapper = styled.div`
   bottom: 0;
   z-index: 1050;
   display: flex;
-  align-items: baseline;
+  /* align-items: baseline; */
   /* animation: ${slide_in} 1s forwards; */
 `;
 
@@ -40,6 +40,21 @@ export const ModalBoxSetup = styled.div`
   background-color: palevioletred;
   animation: ${slide_in} 500ms forwards;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+`;
+
+export const Header = styled.h1`
+  display: block;
+  color: black;
+
+`;
+
+export const Photo = styled.img`
+  width: 20rem;
+  display: block;
 `;
 
 export const ModalBg = styled.div`

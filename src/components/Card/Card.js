@@ -133,7 +133,7 @@ const Card = ({name, type1, type2, photo, clickHandler, number}) => {
 
  
   return (
-    <StyledCard onClick={() => clickHandler(name)} 
+    <StyledCard onClick={() => clickHandler({name, type1, type2, photo, number})} 
                 primary={typeColors[type1].color} >
       <ImageContainer >
         <Picture src={photo}/>

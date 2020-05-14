@@ -10,8 +10,6 @@ import Nav from '../Buttons/Nav';
 const ContentWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  
-
   /* Probably want to adjust this setting */
   min-height: 70rem;
 `;
@@ -98,11 +96,11 @@ const Content = (props) => {
 
   const {data, loading, error} = useQuery(Q_Pokemons, options);
 
-  const updateActiveCard = (name) => {
+  const updateActiveCard = ({name, type1, type2, photo, number}) => {
     console.log(`clicked on card ${name}`);
     setCardSummary(name);
     setShowLargeCard(!showLargeCard);
-    props.clickHandler(name);
+    props.clickHandler({name, type1, type2, photo, number});
   }
 
   const loadNext = () => {
