@@ -17,6 +17,14 @@ const StyledFooter = styled.footer`
   align-items: center;  
 `;
 
+const SocialLink = styled.a`
+  text-decoration: none;
+  &:hover{
+    cursor: pointer;
+  }
+  
+`;
+
 const SocialImage = styled.img`
   margin-left: .5rem;
 `;
@@ -33,7 +41,10 @@ const TextBox = styled.div`
 const Footer = (props) => {
   return (
     <StyledFooter>
-      <SocialImage src={GithubLogo} alt="Github logo"/>
+      <SocialLink href="https://github.com/KSamra/pokedex" target="_blank">
+        <SocialImage src={GithubLogo} alt="Github logo"/>
+      </SocialLink>
+      
       <TextBox>
         <p>Built with React and GraphQL</p>
       </TextBox>
