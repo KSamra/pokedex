@@ -78,7 +78,8 @@ const Content = (props) => {
   let options = {
     variables: {
       offset, 
-      name: searchText
+      name: searchText,
+      pageSize: 40
     }
   }
 

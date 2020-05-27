@@ -17,11 +17,10 @@ const StyledHeader = styled.header`
 
 const Logo = styled.img`
   height: 10rem;
-  margin-right: 2rem;
   background-image: linear-gradient(white, white);
   border-radius: 50%;
   overflow: hidden;
-  
+  margin: 1rem 1rem; 
 `;
 
 const Title = styled.h1`
