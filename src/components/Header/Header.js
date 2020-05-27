@@ -24,8 +24,8 @@ const Logo = styled.img`
 `;
 
 const Title = styled.h1`
-  letter-spacing: 1rem;
-  color: papayawhip;
+  color: white;
+  font-size: 6rem;
 `;
 
 
